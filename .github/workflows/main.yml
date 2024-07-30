@@ -1,0 +1,33 @@
+name: Run Python Script
+
+on:
+  schedule:
+    - cron: '30 13 * * *'  # Ejecutar a las 1:00 PM UTC diariamente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'  # Reemplaza con la versión de Python que necesitas
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyodbc pandas
+
+    - name: Run Python script
+      run: |
+        python ASIGNACION_TXT.py  # Reemplaza con el nombre de tu script
+
+        pip install pyodbc pandas
+
+    - name: Run Python script
+      run: |
+        python ASIGNACION_TXT.py  # Reemplaza con el nombre de tu script
